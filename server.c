@@ -1,26 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minitalk.h                                         :+:      :+:    :+:   */
+/*   server.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: suzukikaisei <suzukikaisei@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/08 14:41:10 by kaisuzuk          #+#    #+#             */
-/*   Updated: 2025/08/11 15:08:43 by suzukikaise      ###   ########.fr       */
+/*   Created: 2025/08/11 15:03:35 by suzukikaise       #+#    #+#             */
+/*   Updated: 2025/08/11 15:08:42 by suzukikaise      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINITALK_H
- #define MINITALK_H
+#include "minitalk.h"
+#include <sys/types.h>
 
-#include <unistd.h>
-#include <signal.h>
+int main(void)
+{
+    const pid_t pid = getpid();
 
-typedef int t_bool;
-#define TRUE 1
-#define FALSE 0
-
-// client_utils.c
-int send_string(pid_t pid, char *arg);
- 
-#endif
+    ft_dprintf(STDOUT_FILENO, "%d\n", pid);
+    
+}

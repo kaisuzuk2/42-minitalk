@@ -3,23 +3,26 @@
 /*                                                        :::      ::::::::   */
 /*   client.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kaisuzuk <kaisuzuk@student.42.fr>          +#+  +:+       +#+        */
+/*   By: suzukikaisei <suzukikaisei@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/08 14:42:00 by kaisuzuk          #+#    #+#             */
-/*   Updated: 2025/08/08 15:04:54 by kaisuzuk         ###   ########.fr       */
+/*   Updated: 2025/08/11 15:02:14 by suzukikaise      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk.h"
-#define PID_ARG 2
-#define CLIENT_ARG_NUM 3 // program_name, pid, arg
+#include "client.h"
 
-void print_usage(void)
+// program_name, pid, arg
+#define PID_ARG 2
+#define CLIENT_ARG_NUM 3
+
+static void print_usage(void)
 {
 	ft_dprintf(STDERR_FILENO, "Usage: PID args\n");
 }
 
-t_bool is_arg_digit(char *arg)
+static t_bool is_arg_digit(char *arg)
 {
 	while (*arg)
 	{
@@ -30,7 +33,7 @@ t_bool is_arg_digit(char *arg)
 	return (TRUE);
 }
 
-t_bool parse(int argc, char **argv)
+static t_bool parse(int argc, char **argv)
 {
 	int i;
 	
