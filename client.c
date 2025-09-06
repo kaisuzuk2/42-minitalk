@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   client.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: suzukikaisei <suzukikaisei@student.42.f    +#+  +:+       +#+        */
+/*   By: kaisuzuk <kaisuzuk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/08 14:42:00 by kaisuzuk          #+#    #+#             */
-/*   Updated: 2025/08/11 15:02:14 by suzukikaise      ###   ########.fr       */
+/*   Updated: 2025/09/06 15:12:42 by kaisuzuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "client.h"
 
 // program_name, pid, arg
-#define PID_ARG 2
+#define PID_ARG 1
 #define CLIENT_ARG_NUM 3
 
 static void print_usage(void)

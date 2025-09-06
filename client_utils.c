@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   client_utils.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: suzukikaisei <suzukikaisei@student.42.f    +#+  +:+       +#+        */
+/*   By: kaisuzuk <kaisuzuk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/08 15:05:17 by kaisuzuk          #+#    #+#             */
-/*   Updated: 2025/08/11 15:02:22 by suzukikaise      ###   ########.fr       */
+/*   Updated: 2025/09/06 15:25:25 by kaisuzuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,18 +16,25 @@
 endian = msb
 */
 
-static int send_char_bits(pid_t pid, char c)
+static int send_char_bits(pid_t pid, unsigned char c)
 {
     int i;
 
-    i = 8;
-    while (--i)
+    i = 7;
+    while (i >= 0)
     {
         if ((c >> i) & 1)
-            kill(pid, SIGUSR2);
+        {
+            if (kill(pid, BIT1_SIG) == -1)
+                return (errno);
+        }
         else
-            kill(pid, SIGUSR1);
+            if (kill(pid, BIT0_SIG) == -1)
+                return (errno);
+        i--;
+        usleep(SEND_DELAY_US);
     }
+    return (0);
 }
 
 int send_string(pid_t pid, char *arg)
