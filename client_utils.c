@@ -6,7 +6,7 @@
 /*   By: kaisuzuk <kaisuzuk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/08 15:05:17 by kaisuzuk          #+#    #+#             */
-/*   Updated: 2025/09/06 15:25:25 by kaisuzuk         ###   ########.fr       */
+/*   Updated: 2025/09/07 11:27:26 by kaisuzuk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ static int send_char_bits(pid_t pid, unsigned char c)
     return (0);
 }
 
-int send_string(pid_t pid, char *arg)
+void send_string(pid_t pid, char *arg)
 {
     while (*arg)
     {
